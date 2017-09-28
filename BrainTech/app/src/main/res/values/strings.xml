@@ -4,6 +4,8 @@
 
     <string name="test_string">Test String</string>
 
+    <string name="Android_Studio_JustinAddition">Hello This is Justin</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
