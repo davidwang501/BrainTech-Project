@@ -2,6 +2,8 @@
     <string name="app_name">BrainTech</string>
     <string name="title_activity_patientdata">Patient Data</string>
 
+    <string name="test_string">Test String</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
