@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">BrainTech</string>
+    <string name="title_activity_patientdata">Patient Data</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_testing">Testing</string>
+
+
+
+    <string name="sex_prompt">Please Select Your Sex</string>
+    <string-array name="sex_array">
+        <item>Sex</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="race_prompt">Please Select Your Race</string>
+    <string-array name="race_array">
+        <item>Race</item>
+        <item>White</item>
+        <item>Black, African-American</item>
+        <item>American Indian or Alaska Native</item>
+        <item>Asian or Pacific Islander</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="interest_prompt">Please Select Your Interests</string>
+    <string-array name="interest_array">
+        <item>Interests</item>
+        <item>Sports</item>
+        <item>Music</item>
+        <item>Art</item>
+        <item>Economics</item>
+        <item>Gaming</item>
+        <item>Foreign Languages</item>
+    </string-array>
+</resources>
