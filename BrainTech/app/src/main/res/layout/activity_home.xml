@@ -36,7 +36,7 @@
 
         <EditText
             android:id="@+id/plain_text_input"
-            android:layout_width="368dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text">
 
@@ -56,7 +56,7 @@
 
         <EditText
             android:id="@+id/plain_text_input3"
-            android:layout_width="368dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text">
 
