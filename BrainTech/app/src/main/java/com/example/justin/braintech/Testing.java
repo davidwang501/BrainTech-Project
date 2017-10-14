@@ -1,5 +1,6 @@
 package com.example.justin.braintech;
 
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.support.annotation.RequiresApi;
 
 public class Testing extends AppCompatActivity {
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +46,11 @@ public class Testing extends AppCompatActivity {
         });
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void testReact() {
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Main2Activity.class);
 
         startActivity(intent);
     }

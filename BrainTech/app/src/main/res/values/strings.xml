@@ -21,7 +21,6 @@
     <string name="title_activity_testing">Testing</string>
 
 
-
     <string name="sex_prompt">Please Select Your Sex</string>
     <string-array name="sex_array">
         <item>Sex</item>
