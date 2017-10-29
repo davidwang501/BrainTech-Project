@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.justin.braintech.GameMenu"
+    tools:showIn="@layout/app_bar_game_menu">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
+        android:layout_height="495dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/reactionbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Reaction Time"
+        tools:layout_editor_absoluteY="263dp"
+        app:layout_constraintRight_toLeftOf="@+id/memorybutton"
+        app:layout_constraintLeft_toRightOf="@+id/multibutton" />
+
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/memorybutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Memory"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="263dp" />
+
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/multibutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="MultiTasking"
+        tools:layout_editor_absoluteY="263dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

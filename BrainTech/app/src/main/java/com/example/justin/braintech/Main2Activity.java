@@ -52,6 +52,7 @@ public class Main2Activity extends AppCompatActivity {
     long initialTime;  //used for storing the initial and the final times (when the screen changes and when the user taps)
     private long record = SLOTH_RT;
     private long redDuration; //duration of the red screen
+    private BrainTechCode dataholder = new BrainTechCode();
 
     //declarations used for sound play
     private static final int MAX_STREAMS = 5;
@@ -236,6 +237,9 @@ public class Main2Activity extends AppCompatActivity {
             case "go":
                 this.state = "ready";
                 long reactionTime = SystemClock.uptimeMillis() - initialTime;
+                double rtholder = (double) reactionTime;
+                dataholder.addScore(rtholder);
+
                 this.logFile.write(String.format("\"%s\",\"%d\",\"%d\"\n", getCurrentTime(), reactionTime, this.redDuration));
                 if (reactionTime < this.record) {
                     this.record = reactionTime;

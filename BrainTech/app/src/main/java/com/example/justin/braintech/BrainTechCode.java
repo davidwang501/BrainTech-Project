@@ -10,7 +10,9 @@ import java.util.ArrayList;
 public class BrainTechCode {
     private ArrayList<Double> recentScores; // Represents the values of the scores that the patient has received.
 
-    private double populationParameter; // Represents the population parameter that we will be comparing against.
+    private double populationParameter = 0.0; // Represents the population parameter that we will be comparing against.
+
+    private int initialscores = 0;
 
 
     public BrainTechCode() { // Constructor used to create each new BrainTech That will be used for each activity to calculate significant changes.
@@ -19,6 +21,11 @@ public class BrainTechCode {
 
     public void addScore(double d) { // When a new score is available after the patient plays an activity, adds it to the rest of the recent scores.
         recentScores.add(d);
+        initialscores++;
+    }
+
+    public int getInitialscores(){
+        return initialscores;
     }
 
     public void setPopulationParameter(double d) { //When a significant change is picked, allows for the population parameter to be adjusted to the new value.

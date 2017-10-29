@@ -50,7 +50,7 @@ public class Testing extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void testReact() {
 
-        Intent intent = new Intent(this, Main2Activity.class);
+        Intent intent = new Intent(this, GameMenu.class);
 
         startActivity(intent);
     }

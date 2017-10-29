@@ -62,4 +62,8 @@
         Webpage: <a href="https://braintech.github.io/Reaction">https://braintech.github.io/Reaction</a>\n\n
         The application measures your <b>reaction time</b>
     </string>
+    <string name="title_activity_game_menu">GameMenu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

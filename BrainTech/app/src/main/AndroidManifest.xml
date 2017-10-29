@@ -43,7 +43,11 @@
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".Main2Activity" />
-        <activity android:name=".aboutActivity2"></activity>
+        <activity android:name=".aboutActivity2" />
+        <activity
+            android:name=".GameMenu"
+            android:label="@string/title_activity_game_menu"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
