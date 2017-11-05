@@ -1,6 +1,7 @@
 package com.example.justin.braintech;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -9,13 +10,16 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -239,7 +243,72 @@ public class Main2Activity extends AppCompatActivity {
                 long reactionTime = SystemClock.uptimeMillis() - initialTime;
                 double rtholder = (double) reactionTime;
                 dataholder.addScore(rtholder);
+                if(dataholder.getInitialscores() == 2) { //Testing line of code
+                    try {
+                        GMailSender sender = new GMailSender("jhbui11@gmail.com", "legion1325477");
+                        sender.sendMail("This is Subject",
+                                "This is Body",
+                                "jhbui11@gmail.com",
+                                "jhbui11@gmail.com");
+                    } catch (Exception e) {
+                        Log.e("SendMail", e.getMessage(), e);
+                    }
+                }
+                if (dataholder.getInitialscores() == 5) {
+                    sendEmail();
+                    dataholder.setPopulationParameter(dataholder.calcAverage());
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                    String mynewmessage = "Your average reaction time is: " + String.valueOf(dataholder.getPopulationParameter()) + "ms" ;
+                    builder1.setMessage(mynewmessage);
+                    builder1.setCancelable(true);
 
+                    builder1.setPositiveButton(
+                            "Yes",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    builder1.setNegativeButton(
+                            "No",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+                }
+                if (dataholder.getInitialscores() > 20) {
+                    if (dataholder.statisticalSignificance()) {
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                        String mynewmessage = "It is statistically significant that your reaction time has decreased" ;
+                        dataholder.setPopulationParameter(dataholder.calcAverage());
+                        builder1.setMessage(mynewmessage);
+                        builder1.setCancelable(true);
+
+                        builder1.setPositiveButton(
+                                "Yes",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        builder1.setNegativeButton(
+                                "No",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        AlertDialog alert11 = builder1.create();
+                        alert11.show();
+                    }
+                }
                 this.logFile.write(String.format("\"%s\",\"%d\",\"%d\"\n", getCurrentTime(), reactionTime, this.redDuration));
                 if (reactionTime < this.record) {
                     this.record = reactionTime;
@@ -255,6 +324,28 @@ public class Main2Activity extends AppCompatActivity {
                 break;
             default:
                 break;
+        }
+    }
+
+    protected void sendEmail() {
+        Log.i("Send email", "");
+        String[] TO = {""};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your subject");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished sending email", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(Main2Activity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -28,6 +28,10 @@ public class BrainTechCode {
         return initialscores;
     }
 
+    public double getPopulationParameter(){
+        return populationParameter;
+    }
+
     public void setPopulationParameter(double d) { //When a significant change is picked, allows for the population parameter to be adjusted to the new value.
         populationParameter = d;
     }
